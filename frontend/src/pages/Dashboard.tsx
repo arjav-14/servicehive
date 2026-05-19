@@ -75,28 +75,24 @@ export const Dashboard: React.FC = () => {
           value={total}
           icon={<Users className="w-5 h-5 text-indigo-500" />}
           description="Global workspace registry"
-          trend={{ value: '12%', isPositive: true }}
         />
         <Card
           title="New Inquiries"
           value={newCount}
           icon={<FileText className="w-5 h-5 text-amber-500" />}
           description="Leads awaiting follow-up"
-          trend={{ value: '4%', isPositive: true }}
         />
         <Card
           title="Qualified opportunities"
           value={qualified}
           icon={<UserCheck className="w-5 h-5 text-emerald-500" />}
           description="High conversion likelihood"
-          trend={{ value: '18%', isPositive: true }}
         />
         <Card
           title="Pipeline conversion"
           value={`${clampedConversion}%`}
           icon={<TrendingUp className="w-5 h-5 text-brand-500" />}
           description="Qualified to total conversion ratio"
-          trend={{ value: '2.5%', isPositive: true }}
         />
       </div>
 
@@ -208,7 +204,7 @@ export const Dashboard: React.FC = () => {
               {['Website', 'Instagram', 'Referral'].map((source) => {
                 const count = leads.filter((l) => l.source === source).length;
                 const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
-                
+
                 const sourceColor: Record<string, string> = {
                   Website: 'text-indigo-500 bg-indigo-50 dark:bg-indigo-950/20',
                   Instagram: 'text-pink-500 bg-pink-50 dark:bg-pink-950/20',
